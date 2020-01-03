@@ -10,12 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_02_204917) do
+ActiveRecord::Schema.define(version: 2020_01_03_210911) do
+
+  create_table "groups", force: :cascade do |t|
+    t.string "group_name"
+    t.string "group_email"
+    t.string "short_form"
+    t.integer "location_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.integer "age"
     t.boolean "isOpen"
+    t.integer "userId"
+    t.integer "group_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
